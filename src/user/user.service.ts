@@ -6,13 +6,8 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) { }
-  create(createUser: User): Promise<User>{
-    const user: User = new User()
-    user.id = createUser.id
-    user.name = createUser.name
-    user.age = createUser.age
-    return this.userRepository.save(user)
-
+  create(user: User): Promise<User>{
+    return this.userRepository.save(user);
   }
 
   findAll() {

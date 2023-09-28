@@ -13,8 +13,8 @@ export class User {
     @Column()
     name: string
 
-    @IsInt()
-    @IsNotEmpty({message: 'Age is required field'})
+    @IsString()
+    @IsNotEmpty({message: 'Password is required field'})
     @Column()
-    age: number
+    password: string
 }
