@@ -14,6 +14,11 @@ export class User {
     name: string
 
     @IsString()
+    @IsNotEmpty({message: 'Email is required field'})
+    @Column()
+    email: string;
+
+    @IsString()
     @IsNotEmpty({message: 'Password is required field'})
     @Column()
     password: string
