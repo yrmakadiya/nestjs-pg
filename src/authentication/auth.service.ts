@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   async getToken(result): Promise<string>{
-    return this.jwtService.sign(result, {secret: process.env.JWT_SECRET})
+    return this.jwtService.sign(result)
   }
 
 }

@@ -7,15 +7,16 @@ import { AuthModule } from './authentication/auth.module';
 
 @Module({
   imports: [
-    UserModule, 
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: '.env'
     }),
     TypeOrmModule.forRootAsync({
       useFactory: typeOrmConfigForPG, // Use the imported configuration function
       inject: [ConfigService],
     }),
-    AuthModule],
+    UserModule, 
+    AuthModule
+  ]
 })
 export class AppModule {}
