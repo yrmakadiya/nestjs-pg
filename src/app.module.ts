@@ -15,8 +15,8 @@ import { AuthModule } from './authentication/auth.module';
       useFactory: typeOrmConfigForPG, // Use the imported configuration function
       inject: [ConfigService],
     }),
-    UserModule, 
-    AuthModule
+    AuthModule,
+    UserModule 
   ]
 })
 export class AppModule {}

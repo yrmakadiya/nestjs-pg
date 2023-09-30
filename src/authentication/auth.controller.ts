@@ -10,6 +10,8 @@ import {
   } from '@nestjs/common';
   import { AuthGuard } from './auth.guard';
   import { AuthService } from './auth.service';
+import { loginDto } from 'src/swagger-dto/login';
+import { ApiBearerAuth } from '@nestjs/swagger';
   
   @Controller('auth')
   export class AuthController {
@@ -17,10 +19,11 @@ import {
   
     @HttpCode(HttpStatus.OK)
     @Post('login')
-    signIn(@Body() signIn: Record<string, any>) {
+    signIn(@Body() signIn: loginDto) {
       return this.authService.signIn(signIn.username, signIn.password);
     }
   
+    @ApiBearerAuth('JWT-auth')
     @UseGuards(AuthGuard)
     @Get('profile')
     getProfile(@Request() req) {
