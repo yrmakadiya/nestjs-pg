@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
-import { User } from '../entities/user.entity';
+import { User } from '../../entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { ApiBearerAuth } from '@nestjs/swagger';
 
