@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { UserService } from './user.service';
 import { User } from '../entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('user')
 export class UserController {
@@ -21,6 +22,7 @@ export class UserController {
     // return 'Invalid Credentials!';
   }
 
+  @ApiBearerAuth('JWT-auth')
   @Get()
   findAll() {
     return this.userService.findAll();
@@ -31,13 +33,13 @@ export class UserController {
   //   return this.userService.findOne(+id);
   // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUser: User) {
-    return this.userService.update(+id, updateUser);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateUser: User) {
+  //   return this.userService.update(+id, updateUser);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.userService.remove(+id);
+  // }
 }

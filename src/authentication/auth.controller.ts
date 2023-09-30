@@ -10,7 +10,7 @@ import {
   } from '@nestjs/common';
   import { AuthGuard } from './auth.guard';
   import { AuthService } from './auth.service';
-import { loginDto } from 'src/swagger-dto/login';
+import { loginDto } from 'src/dto/login';
 import { ApiBearerAuth } from '@nestjs/swagger';
   
   @Controller('auth')
